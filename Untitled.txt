@@ -1,0 +1,354 @@
+COMMENT
+ single line =  //---code----
+
+multiple line = /*
+                */
+
+output for variables
+INTEGER = printf("age is %d", age)
+REAL = printf("value of pi is %f", pi)
+CHARACTERS = printf("star looks like %c", star)
+
+to take values
+scanf("%d", &age)
+******use scanf(" %c, &name)**for character input if there is already a variable in code before*******
+(observe the space before %c)
+
+to print a equation, instead of forming a new variable, can write eqn in variable side of output
+EG-: printf("Perimeter of the Rectangle is: %d", a+a+b+b);
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+CHAPTER 2
+
+for power
+pow(x,y) [for x to the power y]
+USE FLOAT FOR TH IS FNC
+---CODE FOR SQUARE ROOT/ PYTHAGEROYUS---
+---------------------------------------------
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+
+    int a,b;
+    printf("enter a: ");
+    scanf("%d", &a);
+    printf("enter b: ");
+    scanf("%d", &b);
+    float p = a*a + b*b ;
+    float c = 0.5;
+    printf("side c is %f", pow(p,c));
+
+    return 0;
+}
+----------------------------------------------------
+
+to check for eqns
+printf("%d" , EQN);
+
+
+For Operators
+1= True
+0 = false
+
+-Logical Operators
+&& = AND
+|| = OR 
+! = NOT
+
+---------------------------------------------------------------------------------------------------------------------------
+CHAPTER 3
+------------------------
+***IF ELSE
+
+if(condition) {
+    //do something if true
+}
+else {
+    // do if not true
+}
+------------------------------
+***ELSE IF
+
+if(condition 1) {
+    //do something if true
+}
+else if(condition 2) {
+    //do if condition 2 is true but 1st is flase
+}
+else {
+    //do if nothing above is true 
+}
+--------------------------------
+
+if above condition is into consideration use "else if".
+if above consition is not related to new condition, use another "if".
+
+SHORT TYPE FOR IF ELSE:
+condition ? if_statement : else_statement ; 
+
+Q. Write a program to check if a given number is Armstrong number or not.
+ANS -
+
+ #include<stdio.h>
+
+int main(){
+    int R;
+    printf("enter a number: ");
+    scanf("%d", &R);
+
+    int x = (R/100);
+    int y = (R/10);
+    int w = (y - (10*x));
+    int z = (R - (10*y));
+
+    if (x*x*x + w*w*w + z*z*z == R) {
+        printf("It is an Armstrong number");
+    }
+    else if (x + y + z == R) {
+        printf("It is an Armstrong number");
+    }
+    else {
+        printf("it is a random number");
+    }
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------
+CHAPTER 4
+
+for loop
+code:
+
+for(initialisation; condition; updation) {
+    //to do
+}
+eg- for(int i=1; i<=100; i = i+1) {
+    printf("%d", i);
+}
+[ for sum mulltiply, add multiply in printf("%d", a*i) ]
+-------------------------------------------IDKK
+SIDE NOTE [ FOR CHARACTER USAGE, use ch] (for upper,lower case, or increement in alphabets)
+------------------------------------------
+for multiplication table : 
+-----------METHOD 1-----------------------
+
+#include<stdio.h>
+
+int main(){
+    int a;
+    printf("enter number: ");
+    scanf("%d", &a);
+    printf("Multiplication Table for %d is: \n", a);
+    for(int i=a; i<=a*10; i=i+a) {
+        printf("%d \n", i);
+    }
+    return 0;
+}
+
+------------METHOD 2-------------
+#include <stdio.h>
+
+int main() {
+    int a;
+    printf("Enter number: ");
+    scanf("%d", &a);
+    printf("Multiplication Table of %d is: \n", a);
+    
+    for (int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", a, i, a * i);
+    }
+    
+    return 0;
+}
+-----------------------------------------
+
+##BREAK  STATEMENT : for exiting the loop if condition satisfy
+
+for(int i=1; i<=5; i++) {
+    if(i=3) {
+        break;
+    }
+    printf("%d \n", i);
+}
+printf("end");
+
+ WILL LOOP TILL i=3 REACHES, THEN WILL END.
+----------------------------------------------
+##CONTINUE STATEMENT : for skipping the if condn, and continuing the rest.
+
+int main() {
+     for(int i=1; i<=10; i++) {
+        if(i==6) {
+            continue;
+        }
+    printf("%d \n", i);
+    }
+    return 0;
+}
+ --------------------------------------
+
+##DO WHILE LOOP
+
+do{
+    \\to do - codes
+}while(condition);
+
+HERE code in do will continue in loop, till condition in while is satisfied. For continuing loop, put condition as 1. i.e. always tru
+
+----------------QUESTION - take user from input until oddd------
+#include<stdio.h>
+
+int main() {
+    int a;
+    do{
+        printf("enter your number: ");
+        scanf("%d", &a);
+        printf("%d \n", a);
+        if(a%2!=0){
+            break;
+        }
+    }while(1);
+    printf("odd");
+    return 0;
+    -------------------------QUESTION------------------------------------------
+}--------------------------------FACTORIAL OF A NUMBER--------------------------------------
+#include<stdio.h>
+
+int main() {
+    int a;
+    printf("enter a number: ");
+    scanf("%d", &a);
+    int p=1;
+    for(int i=a; i>=1; i--) {
+        p=p*i;
+    }
+    printf("%d", p);
+    
+    return 0; 
+}
+----------------------------------------------------------------------------------------------------------------------------
+---------------------------------CHAPTER 5---------------------------------------------------------------------------------
+FUNCTIONS__
+to use lines of code at various places, it can be transformed into functions
+
+DECLARATION - it is first declared, above the main body (int main).  
+void functioname(); 
+
+FUNCTION DEFINITION - then code is written for function, below the main body (bellow return 0). 
+void functionname() {
+    //codes
+}
+
+FUNCTION CALL - use instead of using the various lines of codes, written inside the main body, where codes are written.
+functionname();
+-----------------------------------------------------------------------------------------------
+EG-:
+#include<stdio.h>
+
+void askage();
+
+int main() {
+    askage();
+    return 0;
+}
+
+void askage() {
+    int n;
+    printf("your age? : ");
+    scanf(" %d", &n);
+    printf("your age is %d", n);
+}
+------------------------------------------------
+Passing argument in functions:
+
+1. void printable();
+2. void printable(int n);  ---- it prints table , doesnt return, hence void is still writen.   
+3. int sum(int a, int b); ---- returns sum back, so int is written
+
+EG for int sum :---------------------------------
+
+#include<stdio.h>
+
+int sum(int r, int s);
+
+int main() {
+    int a,b;
+    printf("enter a: ");
+    scanf("%d", &a);
+    printf("enter b: ");
+    scanf("%d", &b);
+
+    int s = sum(a,b);
+    printf("sum is %d\n ", s);
+
+    return 0;
+}
+
+int sum(int x, int y) {
+    return x + y;
+
+}
+-------------------------------------------------------------------------------------------------------
+EG for printing table :----------------------------------------------------------------------------------------
+
+#include<stdio.h>
+void table(int n);
+
+int main() {
+    int a;
+    printf ("enter a number: ");
+    scanf("%d", &a);
+    table(a);       //actual paramenter  or argument
+    return 0;
+}
+void table(int a) {         //formal parameter. parameter are disconnecteeded of main and this. so name can be same or difff.
+    for (int i=1; i<=10; i++)
+    {
+        printf("%d \n", a*i);
+    }
+    
+}
+--------------------------------------------------------------------------------
+## RECURSSION
+- just like fnction, but to create loop. for multiple times.
+FUNCTION DEFINITION : 
+
+void fnctnname(int count) {
+    if(count==o) {
+        return;
+    }
+     //code to repeat
+     fnctnname(count-1);
+}
+
+------------------------------
+EG: FOR SUM OF N:
+#include<stdio.h>
+
+int SUM(int n);
+
+int main() {
+    int a;
+    printf("enter a number: ");
+    scanf("%d", &a);
+    printf("%d", SUM(a));
+    return 0;
+}
+
+int SUM(int n) {
+    if(n==1) {
+        return 1;
+    }
+    int s1 = SUM(n-1);
+    int S = s1+n;
+    return S;
+}
+--------------
+LOGIC : Sum(n) = sum(n-1) + n |sum 1 = 1 |
+let say user ne 5 dala
+n-1 se 5 se 4 hoga, 4 se 3, 3 se 2, 2 se 1. agaar n==1 pe 1 return kardiya. uske baad usme n add hote jaega.
+1+2+3+4+5 = 15
+
+-------------------------------------------------------------------------------------------------------------------
